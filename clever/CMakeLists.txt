@@ -18,9 +18,9 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   sensor_msgs
   geographic_msgs
-  tf
   tf2
   tf2_geometry_msgs
+  tf2_ros
 )
 
 
@@ -156,7 +156,11 @@ add_library(aruco_vpe
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(rc src/rc.cpp)
 
+add_executable(simple_offboard src/simple_offboard.cpp src/get_telemetry.cpp)
+
 target_link_libraries(rc ${catkin_LIBRARIES})
+
+target_link_libraries(simple_offboard ${catkin_LIBRARIES})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
